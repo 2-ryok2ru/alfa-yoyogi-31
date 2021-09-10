@@ -127,4 +127,31 @@ app.component('answer-input', {
   }
 })
 
+//追加機能
+const timeLimit = document.getElementById("time_limit");
+let count = 0;
+
+function countUp (){
+  count++;
+};
+
+const intervalId = setInterval(() =>{
+  countUp();
+  display(count);
+  //一定時間後強制ページ遷移
+  if (count === 600){
+    window.location.href ="addition.html";
+   };
+  // 600秒を超えるとsetIntervalが停止
+  if(count >= 600){
+    clearInterval(intervalId);
+}}, 1000);    //setIntervalはm秒(1000 = 1秒)換算
+
+function display (count) {
+  const countSe = (10 * 60 - count) % 60;
+  const countMi = (10 * 60 - count) / 60;
+  timeLimit.innerHTML ='残り時間：' + Math.floor(countMi) +'分' + Math.floor(countSe) + '秒';
+};
+//追加機能はここまで
+
 app.mount('#stage')
