@@ -510,3 +510,14 @@ button {
   display: none;
 }
 /*# sourceMappingURL=style.css.map */
+
+/********************
+* addition
+********************/
+.fixed_btn
+{
+  position: fixed;
+  bottom: 10px; 
+  right: 10px;
+  padding: 6px 40px;
+}
